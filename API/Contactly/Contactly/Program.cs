@@ -12,7 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ContactlyDbContext>(options =>
-                                                  options.UseInMemoryDatabase("ContactsDb"));
+                                                  options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ContactlyDb;Integrated Security=True;Connect Timeout=30;"));
 
 var app = builder.Build();
 

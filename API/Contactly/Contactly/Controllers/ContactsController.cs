@@ -54,5 +54,24 @@ namespace Contactly.Controllers
             }
             return Ok(contact);
         }
+
+        [HttpPatch]
+        [Route("{id:guid}")]
+        public IActionResult ModifyFavorite(Guid id)
+        {
+            var contact = dbContext.Contacts.Find(id);
+            if (contact == null)
+            {
+                return NotFound(new { message = "Contact not found" });
+            }
+            else
+            {
+                contact.Favorite = !contact.Favorite;
+
+                dbContext.SaveChanges();
+            }
+
+            return Ok(contact);
+        }
     }
 }

@@ -34,7 +34,6 @@ export class AppComponent {
       phone: this.contactsForm.value.phone,
       favorite: this.contactsForm.value.favorite,
     }
-
     this.http.post('https://localhost:7253/api/Contacts', addContactRequest)
     .subscribe({
       next: (value) => {
@@ -43,6 +42,11 @@ export class AppComponent {
       }
     });
   }
+
+
+  onFavoriteButton(id: string){
+  }
+
 
   onDelete(id: string){
     this.http.delete(`https://localhost:7253/api/Contacts/${id}`)
